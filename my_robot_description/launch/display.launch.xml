@@ -1,0 +1,15 @@
+<launch xmlns="http://ros.org/ns/launch">
+  
+  <!-- robot_state_publisher -->
+  <node pkg="robot_state_publisher" exec="robot_state_publisher" output="screen">
+    <param name="robot_description"
+           value="$(eval open(find('my_robot_description') + '/urdf/my_robot.urdf').read())" />
+  </node>
+
+  <!-- Joint State Publisher GUI -->
+  <node pkg="joint_state_publisher_gui" exec="joint_state_publisher_gui" output="screen" />
+
+  <!-- RViz -->
+  <node pkg="rviz2" exec="rviz2" output="screen" />
+
+</launch>
